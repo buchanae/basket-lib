@@ -1,0 +1,30 @@
+[submodule "src/check"]
+	path = src/check
+	url = git://github.com/jbalogh/check.git
+[submodule "src/commonware"]
+	path = src/commonware
+	url = git://github.com/jsocol/commonware.git
+[submodule "src/django"]
+	path = src/django
+	url = git://github.com/django/django
+[submodule "src/django-cache-machine"]
+	path = src/django-cache-machine
+	url = git://github.com/jbalogh/django-cache-machine.git
+[submodule "src/django-devserver"]
+	path = src/django-devserver
+	url = git://github.com/dcramer/django-devserver.git
+[submodule "src/django-extensions"]
+	path = src/django-extensions
+	url = git://github.com/django-extensions/django-extensions.git
+[submodule "src/django-multidb-router"]
+	path = src/django-multidb-router
+	url = git://github.com/jbalogh/django-multidb-router.git
+[submodule "src/django-nose"]
+	path = src/django-nose
+	url = git://github.com/jbalogh/django-nose.git
+[submodule "src/django-queryset-transform"]
+	path = src/django-queryset-transform
+	url = git://github.com/jbalogh/django-queryset-transform.git
+[submodule "src/test-utils"]
+	path = src/test-utils
+	url = git://github.com/jbalogh/test-utils.git
