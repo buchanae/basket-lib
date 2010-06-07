@@ -4,6 +4,7 @@ packages/httplib2/python2
 packages/ipython
 packages/logilab-astng
 packages/logilab-common
+packages/mercurial
 packages/mock
 packages/nose
 packages/oauth2
@@ -19,7 +20,9 @@ src/django
 src/django-cache-machine
 src/django-devserver
 src/django-extensions
+src/django-mozilla-product-details
 src/django-multidb-router
 src/django-nose
+src/django-piston
 src/django-queryset-transform
 src/test-utils

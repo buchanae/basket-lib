@@ -1,0 +1,27 @@
+#!/bin/sh
+# test command parsing and dispatch
+
+"$TESTDIR/hghave" no-outer-repo || exit 80
+
+hg init a
+cd a
+echo a > a
+hg ci -Ama
+
+echo "# missing arg"
+hg cat
+
+echo '% [defaults]'
+hg cat a
+cat >> $HGRCPATH <<EOF
+[defaults]
+cat = -r null
+EOF
+hg cat a
+
+echo '% no repo'
+cd ..
+hg cat
+
+exit 0
+

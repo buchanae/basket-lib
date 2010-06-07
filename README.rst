@@ -4,8 +4,6 @@ It goes something like this::
 
     pip install --no-install --build=vendor/packages --src=vendor/src -I -r requirements/dev.txt
     cd vendor/packages
-    wget http://bitbucket.org/jespern/django-piston/get/tip.zip
-    unzip tip.zip && rm tip.zip
     find packages src -type d -depth 1 >| basket.pth
     perl -pi -e 's:httplib2:httplib2/python2:' basket.pth
 
