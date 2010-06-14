@@ -1,7 +1,8 @@
 packages/coverage
 packages/django-piston
-packages/httplib2/python2
+packages/httplib/python2
 packages/ipython
+packages/lockfile
 packages/logilab-astng
 packages/logilab-common
 packages/mercurial
@@ -25,4 +26,5 @@ src/django-multidb-router
 src/django-nose
 src/django-piston
 src/django-queryset-transform
+src/schematic
 src/test-utils
