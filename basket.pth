@@ -26,5 +26,7 @@ src/django-multidb-router
 src/django-nose
 src/django-piston
 src/django-queryset-transform
+src/greatape
+src/pychimp
 src/schematic
 src/test-utils

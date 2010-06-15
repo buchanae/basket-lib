@@ -34,3 +34,6 @@
 [submodule "src/schematic"]
 	path = src/schematic
 	url = git://github.com/jbalogh/schematic.git
+[submodule "src/greatape"]
+	path = src/greatape
+	url = git://github.com/threadsafelabs/greatape.git
