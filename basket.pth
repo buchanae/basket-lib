@@ -1,6 +1,6 @@
 packages/coverage
 packages/django-piston
-packages/httplib/python2
+packages/httplib2/python2
 packages/ipython
 packages/lockfile
 packages/logilab-astng
