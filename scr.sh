@@ -2,6 +2,7 @@
 
 find packages src -type d -depth 1 >| basket.pth
 perl -pi -e 's:httplib2:httplib2/python2:' basket.pth
+perl -pi -e 's:src/greatape:src/greatape/src:' basket.pth
 
 git init
 
