@@ -12,6 +12,7 @@ packages/oauth2
 packages/pep8
 packages/pyflakes
 packages/pylint
+packages/python-ldap
 packages/pytz
 packages/setuptools
 packages/werkzeug
