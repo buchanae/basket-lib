@@ -34,6 +34,7 @@ class Resource(object):
             raise AttributeError, "Handler not callable."
 
         self.handler = handler()
+        self.csrf_exempt = getattr(self.handler, 'csrf_exempt', True)
 
         if not authentication:
             self.authentication = (NoAuthentication(),)
@@ -145,8 +146,7 @@ class Resource(object):
         if not rm in handler.allowed_methods:
             return HttpResponseNotAllowed(handler.allowed_methods)
 
-        meth = getattr(handler, self.callmap.get(rm), None)
-
+        meth = getattr(handler, self.callmap.get(rm, ''), None)
         if not meth:
             raise Http404
 
@@ -163,14 +163,18 @@ class Resource(object):
         try:
             result = meth(request, *args, **kwargs)
         except Exception, e:
-            result = self.error_handler(e, request, meth)
+            result = self.error_handler(e, request, meth, em_format)
 
+        try:
+            emitter, ct = Emitter.get(em_format)
+            fields = handler.fields
 
-        emitter, ct = Emitter.get(em_format)
-        fields = handler.fields
-        if hasattr(handler, 'list_fields') and (
-                isinstance(result, list) or isinstance(result, QuerySet)):
-            fields = handler.list_fields
+            if hasattr(handler, 'list_fields') and isinstance(result, (list, tuple, QuerySet)):
+                fields = handler.list_fields
+        except ValueError:
+            result = rc.BAD_REQUEST
+            result.content = "Invalid output format specified '%s'." % em_format
+            return result
 
         status_code = 200
 
@@ -183,7 +187,7 @@ class Resource(object):
             # to convert the content into a string which we don't want. 
             # when _is_string is False _container is the raw data
             result = result._container
-            
+     
         srl = emitter(result, typemapper, handler, fields, anonymous)
 
         try:
@@ -241,7 +245,7 @@ class Resource(object):
         message.send(fail_silently=True)
 
 
-    def error_handler(self, e, request, meth):
+    def error_handler(self, e, request, meth, em_format):
         """
         Override this method to add handling of errors customized for your 
         needs

@@ -2,6 +2,7 @@ MANIFEST.in
 django_piston.egg-info/PKG-INFO
 django_piston.egg-info/SOURCES.txt
 django_piston.egg-info/dependency_links.txt
+django_piston.egg-info/namespace_packages.txt
 django_piston.egg-info/not-zip-safe
 django_piston.egg-info/top_level.txt
 piston/__init__.py
@@ -11,6 +12,7 @@ piston/doc.py
 piston/emitters.py
 piston/forms.py
 piston/handler.py
+piston/handlers_doc.py
 piston/managers.py
 piston/middleware.py
 piston/models.py
